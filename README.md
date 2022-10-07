@@ -1,6 +1,6 @@
-# SSM Seoul Data Engineering Tutorial
+# SSM Seoul Data Engineering Training
 
-SSM-Seoul-Data-Engineering-Tutorial
+SSM-Seoul-Data-Engineering-Training
 
 > 전체 과정에서 사용하는 기본적인 명령어(docker, docker-compose)에 대해 실습하고 사용법을 익힙니다.
 
@@ -33,7 +33,7 @@ git version 2.17.1
 
 </details>
 
-[목차로 돌아가기](#SSM-Seoul-Data-Engineering-Tutorial)
+[목차로 돌아가기](#SSM-Seoul-Data-Engineering-Training)
 
 <br>
 <br>
@@ -50,8 +50,8 @@ git version 2.17.1
 ```bash
 # terminal
 mkdir -p ~/work ; cd ~/work
-git clone https://github.com/psyoblade/ssm-seoul-tutorial.git
-cd ~/work/ssm-seoul-tutorial
+git clone https://github.com/psyoblade/ssm-seoul-training.git
+cd ~/work/ssm-seoul-training
 ```
 <br>
 
@@ -335,7 +335,7 @@ docker-compose exec -e DEBUG=1 ubuntu bash run.sh
 </details>
 
 
-[목차로 돌아가기](#SSM-Seoul-Data-Engineering-Tutorial)
+[목차로 돌아가기](#SSM-Seoul-Data-Engineering-Training)
 
 <br>
 
