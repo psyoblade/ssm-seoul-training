@@ -5,6 +5,7 @@ services:
     container_name: ubuntu
     image: psyoblade/data-engineer-ubuntu:20.04
     restart: always
+    stdin_open: true
     tty: true
     volumes:
       - ./ubuntu/example:/example
@@ -31,5 +32,5 @@ services:
 
 networks:
   default:
-    name: default_network
+    name: ssm_seoul_tutorial_network
 
