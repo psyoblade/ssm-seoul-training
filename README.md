@@ -216,7 +216,8 @@ services:
 
 ```bash
 docker-compose down
-docker-compose --env-file env up -d
+docker-compose --env-file testenv up -d
+sleep 5
 docker-compose exec mysql mysql -uuser -ppass testdb
 ```
 
