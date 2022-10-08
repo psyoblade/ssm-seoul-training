@@ -140,9 +140,10 @@ docker-compose -f docker-compose.yml up -d
 
 > [MySQL 서버에 접속](https://dev.mysql.com/doc/refman/8.0/en/connecting.html) 하는 방법
 
-* 로컬 환경에서는 `--host` 정보는 입력하지 않아도 됩니다
+* 로컬 환경에서는 `--host` 정보는 입력하지 않아도 됩니다. 단, 서버가 뜨는 데에 시간이 걸리므로 5초 대기 후에 접속합니다
 ```bash
 # docker-compose exec mysql mysql --host=localhost --user=scott --password=tiger default
+sleep 5
 docker-compose exec mysql mysql -hlocalhost -uscott -ptiger default
 ```
 * mysql 접속 이후에 테이블 목록 조회 및 종료
