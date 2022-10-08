@@ -184,7 +184,7 @@ environment:
 docker-compose config | head
 ```
 
-<details><summary> [실습] testenv 파일정보를 cat 명령어로 확인하고 --env-file 옵션으로 config 를 통해 제대로 수정 되었는지 확인해 보세요</summary>
+<details><summary> [실습] cat 명령어로 testenv 파일내용을 확인하고 --env-file 옵션으로 config 를 통해 제대로 수정 되었는지 확인해 보세요</summary>
 
 > testenv 파일 확인
 
@@ -223,19 +223,20 @@ docker-compose exec mysql mysql -uuser -ppass testdb
 <br>
 <br>
 
-
 ### 2-3. 기타 명령어
 
 #### 2-3-1. [logs](https://docs.docker.com/compose/reference/logs/) : 컨테이너의 로그를 출력합니다
+
   - <kbd>-f, --follow</kbd> : 출력로그를 이어서 tailing 합니다
 ```bash
 # terminal
 docker-compose up -d mysql
-docker-compose logs -f mysql
+docker-compose logs mysql | head -30
 ```
 <br>
 
 #### 2-3-2. [pull](https://docs.docker.com/compose/reference/pull/) : 컨테이너의 모든 이미지를 다운로드 받습니다
+
   - <kbd>-q, --quiet</kbd> : 다운로드 메시지를 출력하지 않습니다 
 ```bash
 # terminal
@@ -254,7 +255,7 @@ docker-compose ps -a
 #### 2-3-4. [cp](https://docs.docker.com/engine/reference/commandline/compose_cp/) : 컴포즈 컨테이너와 파일을 복사합니다
 ```bash
 # docker compose cp [OPTIONS] SERVICE:SRC_PATH DEST_PATH|-
-docker-compose cp ./local/path/filename ubuntu:/container/path/filename
+# docker-compose cp ./local/path/filename ubuntu:/container/path/filename
 ```
 <br>
 
@@ -276,6 +277,7 @@ if [[ $DEBUG -eq 1 ]]; then
 else
     echo "this is release mode"
 fi
+echo
 ```
 
 * 아래의 도커 `cp` 명령어로 컨테이너 내부로 스크립트를 복사합니다
