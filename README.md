@@ -145,6 +145,15 @@ docker-compose -f docker-compose.yml up -d
 # docker-compose exec mysql mysql --host=localhost --user=scott --password=tiger default
 docker-compose exec mysql mysql -hlocalhost -uscott -ptiger default
 ```
+* mysql 접속 이후에 테이블 목록 조회 및 종료
+
+```mysql
+show tables;
+exit;
+```
+
+> 테이블 목록이 출력 되고 exit 명령으로 나옵니다.
+
 <br>
 
 
