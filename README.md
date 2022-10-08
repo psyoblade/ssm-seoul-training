@@ -295,8 +295,13 @@ $ this is debug mode
 
 > 아래와 같은 방법으로 실행할 수 있습니다 (-e 옵션의 위치가 중요합니다)
 ```bash
-docker-compose exec -e DEBUG=0 ubuntu bash run.sh
-docker-compose exec -e DEBUG=1 ubuntu bash run.sh
+docker-compose exec -e DEBUG=0 ubuntu bash /run.sh
+```
+
+> 아래와 같이 DEBUG 를 변경하고 출력합니다
+
+```bash
+docker-compose exec -e DEBUG=1 ubuntu bash /run.sh
 ```
 
 </details>
