@@ -150,15 +150,16 @@ docker-compose exec mysql mysql -hlocalhost -uscott -ptiger default
 
 ```mysql
 show tables;
+select * from seoul_popular_trip limit 5;
 exit;
 ```
 
-> 테이블 목록이 출력 되고 exit 명령으로 나옵니다.
+> 테이블 목록 및 데이터 출력 되고 exit 명령으로 나옵니다.
 
 <br>
 
-
 #### 2-2-2. 접속정보를 별도의 환경변수 파일에 저장하는 방법
+
 > 코드와 동일한 수준에서 형상관리가 되는 docker-compose.yml 파일에 접속정보를 저장하는 것은 위험할 수 있으므로 별도로 관리(ansible 등)하는 경우 `.env` 파일에 저장관리될 수 있습니다
 
 * default 값이 같은 경로에 `.env` 파일로 `KEY=VALUE` 형식으로 저장될 수 있습니다
