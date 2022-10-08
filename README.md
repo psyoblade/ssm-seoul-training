@@ -181,17 +181,7 @@ environment:
 
 * 현재 설정된 값을 출력하고 싶다면 `config` 명령으로 확인할 수 있습니다
 ```bash
-$ docker-compose config | more
-services:
-  mysql:
-    container_name: mysql
-    environment:
-      MYSQL_DATABASE: default
-      MYSQL_PASSWORD: tiger
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: scott
-    healthcheck:
-...
+docker-compose config
 ```
 
 <details><summary> [실습] .env 파일을 env 파일로 생성하고, 패스워드(=pass), 계정정보(=user) 및 데이터베이스(testdb)으로 변경하여 --env-file 옵션으로 config 를 통해 제대로 수정 되었는지 확인해 보세요</summary>
