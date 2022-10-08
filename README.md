@@ -142,8 +142,8 @@ docker-compose -f docker-compose.yml up -d
 
 * 로컬 환경에서는 `--host` 정보는 입력하지 않아도 됩니다
 ```bash
-mysql --host=localhost --user=scott --password=tiger default
-mysql -hlocalhost -uscott -ptiger default
+docker-compose exec mysql mysql --host=localhost --user=scott --password=tiger default
+docker-compose exec mysql mysql -hlocalhost -uscott -ptiger default
 ```
 <br>
 
