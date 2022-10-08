@@ -297,13 +297,8 @@ docker cp ./run.sh ubuntu:/run.sh
 
 <details><summary> [실습] 환경변수 값(DEBUG=1)에 따라 결과가 달라지는 bash 스크립트를 생성 및 실행해 보세요</summary>
 
-> 출력 결과가 오류가 발생하지 않고, 아래와 같다면 성공입니다
-
-```text
-$ this is debug mode
-```
-
 > 아래와 같은 방법으로 실행할 수 있습니다 (-e 옵션의 위치가 중요합니다)
+
 ```bash
 docker-compose exec -e DEBUG=0 ubuntu bash /run.sh
 ```
@@ -312,6 +307,16 @@ docker-compose exec -e DEBUG=0 ubuntu bash /run.sh
 
 ```bash
 docker-compose exec -e DEBUG=1 ubuntu bash /run.sh
+```
+
+> 출력 결과가 오류가 발생하지 않고, 아래와 같다면 성공입니다
+
+```text
+# DEBUUG=0 인 경우
+$ this is release mode
+
+# DEBUG=1 인 경우
+$ this is debug mode
 ```
 
 </details>
