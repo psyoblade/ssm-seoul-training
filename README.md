@@ -181,14 +181,25 @@ environment:
 
 * 현재 설정된 값을 출력하고 싶다면 `config` 명령으로 확인할 수 있습니다
 ```bash
-docker-compose config
+docker-compose config | head
 ```
 
-<details><summary> [실습] .env 파일을 env 파일로 생성하고, 패스워드(=pass), 계정정보(=user) 및 데이터베이스(testdb)으로 변경하여 --env-file 옵션으로 config 를 통해 제대로 수정 되었는지 확인해 보세요</summary>
+<details><summary> [실습] testenv 파일정보를 cat 명령어로 확인하고 --env-file 옵션으로 config 를 통해 제대로 수정 되었는지 확인해 보세요</summary>
 
-> 아래와 같이 config 결과가 나온다면 정답입니다
+> testenv 파일 확인
+
 ```bash
-docker-compose --env-file env config | head -15
+cat testenv
+```
+
+> --env-file 옵션과 함께 config 실행
+
+```bash
+docker-compose --env-file testenv config | head -8
+```
+
+> 실행 결과가 아래와 같으면 정상입니다.
+```yaml
 services:
   mysql:
     container_name: mysql
@@ -199,52 +210,7 @@ services:
       MYSQL_USER: user
 ```
 
-> `env` 파일 
-```text
-MYSQL_ROOT_PASSWORD=root
-MYSQL_DATABASE=testdb
-MYSQL_USER=user
-MYSQL_PASSWORD=pass
-```
-
-> `docker-compose.yml` 파일
-```yaml
-version: "3"
-
-services:
-  mysql:
-    container_name: mysql
-    image: psyoblade/data-engineer-mysql:1.1
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
-      MYSQL_DATABASE: $MYSQL_DATABASE
-      MYSQL_USER: $MYSQL_USER
-      MYSQL_PASSWORD: $MYSQL_PASSWORD
-    ports:
-      - '3306:3306'
-    networks:
-      - default
-    healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      interval: 3s
-      timeout: 1s
-      retries: 3
-    volumes:
-      - ./mysql/etc:/etc/mysql/conf.d
-
-networks:
-  default:
-    name: default_network
-```
-
-> 아래와 같은 방법으로 실행할 수 있습니다
-
-```bash
-docker-compose --env-file env config
-```
-
-> 기존의 데이터베이스를 종료하고 다시 기동하여 접속합니다
+> 아래와 같이 변경된 환경 정보로 접속 테스트를 할 수 있습니다
 
 ```bash
 docker-compose down
